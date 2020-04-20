@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alzz.demo.repository.SystemLogMapper">
+  <resultMap id="BaseResultMap" type="com.alzz.demo.domain.SystemLog">
+    <!--@mbg.generated-->
+    <!--@Table system_log-->
+    <id column="log_id" jdbcType="INTEGER" property="logId" />
+    <result column="oper_code" jdbcType="VARCHAR" property="operCode" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="log_time" jdbcType="VARCHAR" property="logTime" />
+    <result column="log_model" jdbcType="VARCHAR" property="logModel" />
+    <result column="log_type" jdbcType="VARCHAR" property="logType" />
+    <result column="log_context" jdbcType="VARCHAR" property="logContext" />
+    <result column="log_result" jdbcType="VARCHAR" property="logResult" />
+    <result column="log_error" jdbcType="VARCHAR" property="logError" />
+    <result column="log_url" jdbcType="VARCHAR" property="logUrl" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="client_ip" jdbcType="VARCHAR" property="clientIp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    log_id, oper_code, user_name, log_time, log_model, log_type, log_context, log_result, 
+    log_error, log_url, class_name, method_name, params, client_ip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from system_log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from system_log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="log_id" keyProperty="logId" parameterType="com.alzz.demo.domain.SystemLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into system_log (oper_code, user_name, log_time, 
+      log_model, log_type, log_context, 
+      log_result, log_error, log_url, 
+      class_name, method_name, params, 
+      client_ip)
+    values (#{operCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{logTime,jdbcType=VARCHAR}, 
+      #{logModel,jdbcType=VARCHAR}, #{logType,jdbcType=VARCHAR}, #{logContext,jdbcType=VARCHAR}, 
+      #{logResult,jdbcType=VARCHAR}, #{logError,jdbcType=VARCHAR}, #{logUrl,jdbcType=VARCHAR}, 
+      #{className,jdbcType=VARCHAR}, #{methodName,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, 
+      #{clientIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="log_id" keyProperty="logId" parameterType="com.alzz.demo.domain.SystemLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into system_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operCode != null">
+        oper_code,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="logTime != null">
+        log_time,
+      </if>
+      <if test="logModel != null">
+        log_model,
+      </if>
+      <if test="logType != null">
+        log_type,
+      </if>
+      <if test="logContext != null">
+        log_context,
+      </if>
+      <if test="logResult != null">
+        log_result,
+      </if>
+      <if test="logError != null">
+        log_error,
+      </if>
+      <if test="logUrl != null">
+        log_url,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="methodName != null">
+        method_name,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="clientIp != null">
+        client_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operCode != null">
+        #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="logTime != null">
+        #{logTime,jdbcType=VARCHAR},
+      </if>
+      <if test="logModel != null">
+        #{logModel,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=VARCHAR},
+      </if>
+      <if test="logContext != null">
+        #{logContext,jdbcType=VARCHAR},
+      </if>
+      <if test="logResult != null">
+        #{logResult,jdbcType=VARCHAR},
+      </if>
+      <if test="logError != null">
+        #{logError,jdbcType=VARCHAR},
+      </if>
+      <if test="logUrl != null">
+        #{logUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null">
+        #{clientIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.alzz.demo.domain.SystemLog">
+    <!--@mbg.generated-->
+    update system_log
+    <set>
+      <if test="operCode != null">
+        oper_code = #{operCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="logTime != null">
+        log_time = #{logTime,jdbcType=VARCHAR},
+      </if>
+      <if test="logModel != null">
+        log_model = #{logModel,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null">
+        log_type = #{logType,jdbcType=VARCHAR},
+      </if>
+      <if test="logContext != null">
+        log_context = #{logContext,jdbcType=VARCHAR},
+      </if>
+      <if test="logResult != null">
+        log_result = #{logResult,jdbcType=VARCHAR},
+      </if>
+      <if test="logError != null">
+        log_error = #{logError,jdbcType=VARCHAR},
+      </if>
+      <if test="logUrl != null">
+        log_url = #{logUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="methodName != null">
+        method_name = #{methodName,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="clientIp != null">
+        client_ip = #{clientIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.alzz.demo.domain.SystemLog">
+    <!--@mbg.generated-->
+    update system_log
+    set oper_code = #{operCode,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      log_time = #{logTime,jdbcType=VARCHAR},
+      log_model = #{logModel,jdbcType=VARCHAR},
+      log_type = #{logType,jdbcType=VARCHAR},
+      log_context = #{logContext,jdbcType=VARCHAR},
+      log_result = #{logResult,jdbcType=VARCHAR},
+      log_error = #{logError,jdbcType=VARCHAR},
+      log_url = #{logUrl,jdbcType=VARCHAR},
+      class_name = #{className,jdbcType=VARCHAR},
+      method_name = #{methodName,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      client_ip = #{clientIp,jdbcType=VARCHAR}
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+
+  <insert id="insertByBatch"  parameterType="com.alzz.demo.domain.SystemLog" >
+    insert into system_log(
+        oper_code,
+        user_name,
+        log_time,
+        log_model,
+        log_type,
+        log_context,
+        log_result,
+        log_error,
+        log_url,
+        class_name,
+        method_name,
+        params,
+        client_ip
+    )
+    values
+    <foreach collection="list" item="item" index= "index" separator =",">
+      (
+          #{item.operCode,jdbcType=VARCHAR},
+          #{item.userName,jdbcType=VARCHAR},
+          #{item.logTime,jdbcType=VARCHAR},
+          #{item.logModel,jdbcType=VARCHAR},
+          #{item.logType,jdbcType=VARCHAR},
+          #{item.logContext,jdbcType=VARCHAR},
+          #{item.logResult,jdbcType=VARCHAR},
+          #{item.logError,jdbcType=VARCHAR},
+          #{item.logUrl,jdbcType=VARCHAR},
+          #{item.className,jdbcType=VARCHAR},
+          #{item.methodName,jdbcType=VARCHAR},
+          #{item.params,jdbcType=VARCHAR},
+          #{item.clientIp,jdbcType=VARCHAR}
+      )
+    </foreach>
+
+  </insert>
+</mapper>

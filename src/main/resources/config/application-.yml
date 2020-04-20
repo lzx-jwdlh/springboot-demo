@@ -1,0 +1,60 @@
+jasypt:
+  encryptor:
+    password: screen
+logging:
+  level:
+    com:
+      alzz:
+        demo:
+          mapper: DEBUG
+server:
+  port: 10000
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: 'true '
+    resources:
+      add-mappings: false
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    druid:
+      stat-view-servlet:
+        allow: 127.0.0.1,172.125.100.78
+        deny: ''
+        enabled: true
+        login-password: 123456
+        login-username: admin
+        reset-enable: false
+        url-pattern: /druid/*
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        url-pattern: /*
+    filters: stat,wall,slf4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 5
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    url: jdbc:mysql://localhost:3306/big_screen?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false
+    username: root
+
+    validationQuery: SELECT 1 FROM DUAL
+  redis:
+    database: 0
+    host: localhost
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 10
+        max-wait: -1
+        min-idle: 5
+    port: 6379
+    timeout: 1000
